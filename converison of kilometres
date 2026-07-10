@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main()
+{
+    int a;
+    int b;
+    int c;
+    printf("Enter the kilometre:");
+    scanf("%d",&a);
+    b=a*100000;
+    printf("centimetre:%d\n",&b);
+    c=a*1000000;
+    printf("Millimetre:%d\n",&c);
+    return 0;
+}
