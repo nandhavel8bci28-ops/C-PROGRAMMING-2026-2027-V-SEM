@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main()
+{
+    int a;
+    int b;
+    int c, d, e;
+    int tot;
+    int per;
+    //(give input by spaces like 1 2 3 4 5)
+    printf("Enter the subject1,2,3,4,5 marks:");
+    scanf("%d %d %d %d %d",&a,&b,&c,&d,&e);
+    tot=a + b + c+ d + e;
+    per=(tot*100)/500;
+    printf("Total marks: %d ",tot);
+    printf("Perecntage of marks obtained by as student: %d %",per);
+    return 0;
+}
