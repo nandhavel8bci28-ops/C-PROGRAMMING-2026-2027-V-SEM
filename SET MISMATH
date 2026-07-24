@@ -1,0 +1,33 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* findErrorNums(int* nums, int numsSize, int* returnSize) {
+    int freq[numsSize];
+    int missing;
+    int repeated;
+    int n= numsSize;
+    for(int i=0;i<n;i++)
+    {
+        freq[i]=0;
+    }
+    for(int j=0;j<n;j++)
+    {
+        freq[nums[j]-1]++;
+    }
+    for(int k=0;k<n;k++)
+    {
+        if(freq[k]==0)
+        {
+            missing=k+1;
+        }
+        if(freq[k]==2)
+        {
+            repeated=k+1;
+        }
+    }
+    *returnSize=2;
+    int *ans= malloc(2*sizeof(int));
+    ans[0]=repeated;
+    ans[1]=missing;
+    return ans;
+}
