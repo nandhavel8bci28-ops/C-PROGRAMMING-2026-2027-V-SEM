@@ -1,0 +1,37 @@
+long long gcd(long long a, long long b) {
+    while (b != 0) {
+        long long temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+long long lcm(long long a, long long b) {
+    return (a / gcd(a, b)) * b;
+}
+
+long long maxLength(int* nums, int len) {
+    long long maxLen = 0;
+
+    for (int i = 0; i < len; i++) {
+        long long product = 1, gcdAns = nums[i], lcmAns = nums[i];
+
+        for (int j = i; j < len; j++) {
+            if (product > LLONG_MAX / nums[j]) {  
+                break;  
+            }
+            product *= nums[j];
+            gcdAns = gcd(gcdAns, nums[j]);
+            lcmAns = lcm(lcmAns, nums[j]);
+
+            if (product == gcdAns * lcmAns) {
+                long long subLen = j - i + 1;
+                if (subLen > maxLen) {
+                    maxLen = subLen;
+                }
+            }
+        }
+    }
+    return maxLen;
+}
